@@ -9,6 +9,7 @@ public class Pelanggan : MonoBehaviour
     [SerializeField] SpriteRenderer dialogS;
     [SerializeField] SpriteRenderer foodS;
     [SerializeField] Sprite happyChar;
+    [SerializeField] Sprite boredChar;
     [SerializeField] Sprite madChar;
     [SerializeField] Sprite foodsSprite;
 
@@ -51,11 +52,14 @@ public class Pelanggan : MonoBehaviour
     {
         if (!isOnFinalPosition && !isLeaving)
         {
+            charS.flipX = true;
             transform.position = Vector2.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
             if (Vector2.Distance(transform.position, targetPos) < 0.01f)
             {
+                charS.flipX = false;
                 isOnFinalPosition = true;
                 dialogS.enabled = true;
+                foodS.color = new Color(foodS.color.r, foodS.color.g, foodS.color.b, 0.8f);
                 foodS.enabled = true;
                 StartCoroutine(timerCoroutine());
             }
@@ -88,6 +92,10 @@ public class Pelanggan : MonoBehaviour
         float timeSpend = 0f;
         while (timeSpend < waitTime)
         {
+            if (timeSpend >= (waitTime / 2))
+            {
+                charS.sprite = boredChar;
+            }
             if (isServed) { yield break; }
             timeSpend += Time.deltaTime;
             yield return null;
