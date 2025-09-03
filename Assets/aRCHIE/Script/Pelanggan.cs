@@ -36,6 +36,7 @@ public class Pelanggan : MonoBehaviour
     bool isServed = false;
 
     Spawner spawner;
+    Seat kursiPelanggan;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -100,16 +101,16 @@ public class Pelanggan : MonoBehaviour
         isServed = true;
     }
 
-    public void init(Spawner s)
+    public void init(Spawner s, Seat kursi)
     {
         spawner = s;
+        kursiPelanggan = kursi;
+        kursiPelanggan.Dipakai();
+        targetPos = kursi.transform.position;
     }
 
     void OnDestroy()
     {
-        if (spawner != null)
-        {
-            spawner.PelangganKeluar();
-        }
+        if (kursiPelanggan != null) kursiPelanggan.Kosong();        
     }
 }

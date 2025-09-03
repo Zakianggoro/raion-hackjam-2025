@@ -9,8 +9,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] GameObject pelanggan;
 
     [Header("Capacity settings")]
-    [SerializeField] int maxPelanggan = 4;
-    int currentPelanggan = 0;
+    [SerializeField] Seat[] seats;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,24 +25,29 @@ public class Spawner : MonoBehaviour
 
     IEnumerator SpawnCoroutine()
     {
-        while(true)
-        { if (currentPelanggan < maxPelanggan)
+        while (true)
+        {
+            Seat kursi = cariSeat();
+            if (kursi != null)
             {
                 GameObject newPelanggan = Instantiate(pelanggan, transform.position, quaternion.identity);
 
-                newPelanggan.GetComponent<Pelanggan>().init(this);
-
-                currentPelanggan++;
+                newPelanggan.GetComponent<Pelanggan>().init(this, kursi);
             }
-
             yield return new WaitForSeconds(interval);
         }
     }
 
-
-
-    public void PelangganKeluar()
+    Seat cariSeat()
     {
-        currentPelanggan--;
+        foreach (Seat kursi in seats)
+        {
+            if (!kursi.isOccupied)
+            {
+                return kursi;
+            }
+        }
+        return null;
     }
+
 }
