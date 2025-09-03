@@ -12,20 +12,30 @@ public class Pelanggan : MonoBehaviour
     [SerializeField] Sprite madChar;
     [SerializeField] Sprite foodsSprite;
 
+    [Space]
+
     [Header("Waiting time")]
     [SerializeField] float waitTime = 15.0f;
+
+    [Space]
 
     [Header("Location Setting")]
     [SerializeField] Vector2 startPos;
     [SerializeField] Vector2 targetPos;
 
+    [Space]
+
     [Header("Move settings")]
     [SerializeField] float moveSpeed;
+
+    [Space]
 
     [Header("Boolean Settings")]
     bool isOnFinalPosition = false;
     bool isLeaving = false;
     bool isServed = false;
+
+    Spawner spawner;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -88,5 +98,18 @@ public class Pelanggan : MonoBehaviour
     public void MenuServed()
     {
         isServed = true;
+    }
+
+    public void init(Spawner s)
+    {
+        spawner = s;
+    }
+
+    void OnDestroy()
+    {
+        if (spawner != null)
+        {
+            spawner.PelangganKeluar();
+        }
     }
 }
