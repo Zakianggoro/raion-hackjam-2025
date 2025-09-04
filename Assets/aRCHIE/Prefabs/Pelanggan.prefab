@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -7180407130359012959, guid: 7e3253cfb0102e842a83a7c232fb965b, type: 3}
+  m_Sprite: {fileID: -5747913633912419129, guid: 3e0cdf5fef3195146a0f362ad8dc56eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,9 +98,11 @@ GameObject:
   - component: {fileID: 623448539057993977}
   - component: {fileID: 3837954180564458852}
   - component: {fileID: 1379517759968572666}
+  - component: {fileID: 5561220696321206497}
+  - component: {fileID: 3356005353102893714}
   m_Layer: 0
   m_Name: Pelanggan
-  m_TagString: Untagged
+  m_TagString: FoodContainer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2983598852584186512}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.48, y: 1.13, z: 10}
   m_LocalScale: {x: 3.52008, y: 4.6743007, z: 1}
   m_ConstrainProportionsScale: 0
@@ -196,11 +198,80 @@ MonoBehaviour:
   happyChar: {fileID: -218436631065451443, guid: cb3e6b1bc51330043920592d9b9eeda0, type: 3}
   boredChar: {fileID: -8959440937514122321, guid: 166e5a00dee296747868125925a00b36, type: 3}
   madChar: {fileID: 717461577359285357, guid: 849cdf0e8ecbd974db1181a020b79de5, type: 3}
-  foodsSprite: {fileID: 0}
+  foodsSprite:
+  - {fileID: -5747913633912419129, guid: 3e0cdf5fef3195146a0f362ad8dc56eb, type: 3}
+  - {fileID: -7180407130359012959, guid: 7e3253cfb0102e842a83a7c232fb965b, type: 3}
+  foodsString: 
   waitTime: 15
   startPos: {x: 0, y: 0}
   targetPos: {x: 0, y: 0}
+  charTr: {fileID: 8027823708562281746}
   moveSpeed: 5
+  intervalStep: 0.35
+  degreeStep: 4
+--- !u!58 &5561220696321206497
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2983598852584186512}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.22409536, y: 0.22501303}
+  m_Radius: 0.22649293
+--- !u!50 &3356005353102893714
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2983598852584186512}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5466930656184390875
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Timers;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Pelanggan : MonoBehaviour
 {
@@ -11,7 +13,8 @@ public class Pelanggan : MonoBehaviour
     [SerializeField] Sprite happyChar;
     [SerializeField] Sprite boredChar;
     [SerializeField] Sprite madChar;
-    [SerializeField] Sprite foodsSprite;
+    [SerializeField] Sprite[] foodsSprite;
+    [SerializeField] String foodsString;
 
     [Space]
 
@@ -27,7 +30,10 @@ public class Pelanggan : MonoBehaviour
     [Space]
 
     [Header("Move settings")]
+    [SerializeField] Transform charTr;
     [SerializeField] float moveSpeed;
+    [SerializeField] float intervalStep;
+    [SerializeField] int degreeStep;
 
     [Space]
 
@@ -35,6 +41,7 @@ public class Pelanggan : MonoBehaviour
     bool isOnFinalPosition = false;
     bool isLeaving = false;
     bool isServed = false;
+    bool walkStart = false;
 
     Spawner spawner;
     Seat kursiPelanggan;
@@ -42,6 +49,18 @@ public class Pelanggan : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        int random = Random.Range(0, foodsSprite.Length);
+        foodS.sprite = foodsSprite[random];
+
+        switch (random)
+        {
+            case 0:
+                foodsString = "Maki";
+                break;
+            case 1:
+                foodsString = "Nigiri";
+                break;
+        }
         startPos = transform.position;
         dialogS.enabled = false;
         foodS.enabled = false;
@@ -52,10 +71,18 @@ public class Pelanggan : MonoBehaviour
     {
         if (!isOnFinalPosition && !isLeaving)
         {
+            if (!walkStart)
+            {
+                walkStart = true;
+                StartCoroutine(walkCoroutine());
+            }
+
             charS.flipX = true;
             transform.position = Vector2.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
             if (Vector2.Distance(transform.position, targetPos) < 0.01f)
             {
+                walkStart = false;
+                charTr.rotation = Quaternion.Euler(0f, 0f, 0f);
                 charS.flipX = false;
                 isOnFinalPosition = true;
                 dialogS.enabled = true;
@@ -68,6 +95,11 @@ public class Pelanggan : MonoBehaviour
         {
             if (isLeaving && !isServed)
             {
+                if (!walkStart)
+                {
+                    walkStart = true;
+                    StartCoroutine(walkCoroutine());
+                }
                 charS.sprite = madChar;
                 dialogS.enabled = false;
                 foodS.enabled = false;
@@ -104,6 +136,18 @@ public class Pelanggan : MonoBehaviour
         isLeaving = true;
     }
 
+    IEnumerator walkCoroutine()
+    {
+        while (!isOnFinalPosition || isLeaving)
+        {
+            charTr.rotation = Quaternion.Euler(0f, 0f, degreeStep);
+            yield return new WaitForSeconds(intervalStep);
+            charTr.rotation = Quaternion.Euler(0f, 0f, -degreeStep);
+            yield return new WaitForSeconds(intervalStep);
+        }
+        charTr.rotation = Quaternion.Euler(0f, 0f, 0f);
+    }
+
     public void MenuServed()
     {
         isServed = true;
@@ -119,6 +163,6 @@ public class Pelanggan : MonoBehaviour
 
     void OnDestroy()
     {
-        if (kursiPelanggan != null) kursiPelanggan.Kosong();        
+        if (kursiPelanggan != null) kursiPelanggan.Kosong();
     }
 }
