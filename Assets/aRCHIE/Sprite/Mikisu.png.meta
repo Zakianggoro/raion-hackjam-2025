@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9577a0d2e5d4ed04b9419039339d2eb0
+guid: ab78c3ec436608948949c4abab6043a4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -123058118157912311
-    second: next_0
+      213: 2991094250861379174
+    second: Mikisu_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: next_0
+      name: Mikisu_0
       rect:
         serializedVersion: 2
-        x: 875
-        y: 450
-        width: 160
-        height: 180
+        x: 408
+        y: 86
+        width: 1119
+        height: 799
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 90738742b4fca4ef0800000000000000
-      internalID: -123058118157912311
+      spriteID: 66e3e48af50828920800000000000000
+      internalID: 2991094250861379174
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      next_0: -123058118157912311
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

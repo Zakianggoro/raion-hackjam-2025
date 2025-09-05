@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9577a0d2e5d4ed04b9419039339d2eb0
+guid: 5f500c8b90f04d543b8738374fd8ab0f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -123058118157912311
-    second: next_0
+      213: -604924181627814928
+    second: BG_Belakang_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: next_0
+      name: BG_Belakang_0
       rect:
         serializedVersion: 2
-        x: 875
-        y: 450
-        width: 160
-        height: 180
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 90738742b4fca4ef0800000000000000
-      internalID: -123058118157912311
+      spriteID: 0fbb70e69a0ea97f0800000000000000
+      internalID: -604924181627814928
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      next_0: -123058118157912311
+      BG_Belakang_0: -604924181627814928
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

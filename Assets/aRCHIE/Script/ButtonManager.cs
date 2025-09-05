@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] string tutorScene;
     [SerializeField] string menuScene;
     [SerializeField] string settingScene;
+    public GameObject pauseOverlay;
+    public Button pauseButton;
 
     public void ToMenu()
     {
@@ -43,5 +46,12 @@ public class ButtonManager : MonoBehaviour
     public void quit()
     {
         Application.Quit();
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+        pauseButton.enabled = true;
+        pauseOverlay.SetActive(false);
     }
 }

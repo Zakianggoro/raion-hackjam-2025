@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/aRCHIE/Scene/Tutorial.unity
     guid: 63882e4c4e6c153409988e0898fcdb20
+  - enabled: 1
+    path: Assets/aRCHIE/Scene/Gameplay.unity
+    guid: 548e97f01e22a444187c140f19936f55
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
