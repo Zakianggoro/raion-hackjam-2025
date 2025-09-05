@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Timers;
+using JetBrains.Annotations;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -283,6 +284,30 @@ public class Pelanggan : MonoBehaviour
             isActivEmot = true;
             StartCoroutine(emotCoroutine());
         }
+
+    }
+
+    public string GetFoodString()
+    {
+        return foodsString;
+    }
+
+    public void RightFood()
+    {
+        dialogS.color = Color.green;
+        Debug.Log("Benar makanannya");
+    }
+
+    public void WrongFood()
+    {
+        dialogS.color = Color.red;
+        Debug.Log("Salah Makanannya");
+    }
+
+    public void IdleFood()
+    {
+        dialogS.color = Color.white;
+        Debug.Log("Balik ke awal");
         
     }
 }

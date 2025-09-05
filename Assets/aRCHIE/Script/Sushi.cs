@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,6 +9,8 @@ public class Sushi : MonoBehaviour
     [SerializeField] SpriteRenderer spritePlatform;
     [SerializeField] float enlargeValue;
     [SerializeField] string specialIngredient;
+
+    Pelanggan pelanggan;
 
     bool isDrag = false;
     Vector2 startPos;
@@ -45,6 +48,18 @@ public class Sushi : MonoBehaviour
         if (collision.gameObject.CompareTag("FoodContainer"))
         {
             transform.localScale = new Vector3(transform.localScale.x + enlargeValue, transform.localScale.y + enlargeValue, transform.localScale.z + enlargeValue);
+            if (pelanggan == null)
+            {
+                pelanggan = collision.gameObject.GetComponent<Pelanggan>();
+                if (specialIngredient == pelanggan.GetFoodString())
+                {
+                    pelanggan.RightFood();
+                }
+                else if (specialIngredient != pelanggan.GetFoodString())
+                {
+                    pelanggan.WrongFood();
+                }
+            }
         }
     }
 
@@ -53,7 +68,18 @@ public class Sushi : MonoBehaviour
         if (collision.gameObject.CompareTag("FoodContainer"))
         {
             transform.localScale = startSize;
+            if (pelanggan != null)
+            {
+                pelanggan.IdleFood();
+                pelanggan = null;
+            }
         }
+    }
+
+    public void ModifiedIngridient(String ingredient)
+    {
+        specialIngredient = ingredient;
+       // return specialIngredient;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 

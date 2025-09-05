@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 3356005353102893714}
   - component: {fileID: 7035302704702642453}
   m_Layer: 0
-  m_Name: Pelanggan
+  m_Name: Pelanggan 1
   m_TagString: FoodContainer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,9 +197,9 @@ MonoBehaviour:
   dialogS: {fileID: 2374633921443646129}
   foodS: {fileID: 9068448265921216260}
   emoteS: {fileID: 3778673476757779503}
-  happyChar: {fileID: -218436631065451443, guid: cb3e6b1bc51330043920592d9b9eeda0, type: 3}
-  boredChar: {fileID: -8959440937514122321, guid: 166e5a00dee296747868125925a00b36, type: 3}
-  madChar: {fileID: 717461577359285357, guid: 849cdf0e8ecbd974db1181a020b79de5, type: 3}
+  happyChar: {fileID: -6450146856871651203, guid: dd80d8de10e494941b14d915f10df3ad, type: 3}
+  boredChar: {fileID: -9171328676695516886, guid: 4f622db19fe64f64d89af0099ce73935, type: 3}
+  madChar: {fileID: -5134284066893698929, guid: 4aec2e066d282984b8fa746a3462ddbc, type: 3}
   marahEmot: {fileID: 21300000, guid: 2721f45a0ec3bab4ab9c82df2284ff1c, type: 3}
   happyEmot: {fileID: 21300000, guid: f0a119d651b69b147b92531dc99af6ec, type: 3}
   dialogText:
@@ -466,7 +466,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 602708018428782107, guid: 6e6f83db31dc09d4aa2ebf7821a716a2, type: 3}
+  m_Sprite: {fileID: -3096480249038402308, guid: 913450b648f88b7469a19240f494ca54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

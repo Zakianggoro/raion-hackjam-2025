@@ -1,12 +1,13 @@
 using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
     [Header("Spawn settings")]
     [SerializeField] float interval;
-    [SerializeField] GameObject pelanggan;
+    [SerializeField] GameObject[] pelanggan;
 
     [Header("Capacity settings")]
     [SerializeField] Seat[] seats;
@@ -30,7 +31,8 @@ public class Spawner : MonoBehaviour
             Seat kursi = cariSeat();
             if (kursi != null)
             {
-                GameObject newPelanggan = Instantiate(pelanggan, transform.position, quaternion.identity);
+                int randomC = Random.Range(0, pelanggan.Length);
+                GameObject newPelanggan = Instantiate(pelanggan[randomC], transform.position, quaternion.identity);
 
                 newPelanggan.GetComponent<Pelanggan>().init(this, kursi);
             }
