@@ -146,7 +146,7 @@ public class Pelanggan : MonoBehaviour
             yield return null;
         }
 
-        isLeaving = true;
+        if(!isServed){isLeaving = true;}
     }
 
     IEnumerator walkCoroutine()
