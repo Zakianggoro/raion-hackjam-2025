@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Rice_Cooker_Idle_0: -8751203980214270877
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
