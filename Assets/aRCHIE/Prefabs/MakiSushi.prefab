@@ -103,6 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sushiName: Maki
   spritePlatform: {fileID: 1638916230959641889}
+  enlargeValue: 0
+  specialIngredient: 
 --- !u!61 &8656312408799155677
 BoxCollider2D:
   m_ObjectHideFlags: 0

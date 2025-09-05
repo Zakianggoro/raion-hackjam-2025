@@ -36,14 +36,30 @@ public class Topping : MonoBehaviour
     }
     
     public void CutTopping()
+{
+    if (!isCut)
     {
-        if (!isCut)
+        isCut = true;
+
+        if (cutSprite)
         {
-            isCut = true;
-            if (cutSprite) spriteRenderer.sprite = cutSprite;
-            Debug.Log($"{toppingType} has been cut and sprite changed");
+            Vector3 oldSize = spriteRenderer.bounds.size;
+            spriteRenderer.sprite = cutSprite;
+            Vector3 newSize = spriteRenderer.bounds.size;
+
+            if (newSize.x > 0 && newSize.y > 0)
+            {
+                Vector3 scale = transform.localScale;
+                scale.x *= oldSize.x / newSize.x;
+                scale.y *= oldSize.y / newSize.y;
+                transform.localScale = scale;
+            }
         }
+
+        Debug.Log($"{toppingType} has been cut and sprite changed");
     }
+}
+
     
     void OnMouseDown()
     {
