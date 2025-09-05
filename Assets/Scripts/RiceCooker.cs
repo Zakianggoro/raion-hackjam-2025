@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-// Rice Cooker - Click 5 times to create rice
 public class RiceCooker : MonoBehaviour
 {
     [Header("Rice Creation")]

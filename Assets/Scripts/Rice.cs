@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class Rice : MonoBehaviour
 {
@@ -18,6 +17,7 @@ public class Rice : MonoBehaviour
         Vector3 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
         offset = transform.position - mousePos;
+        Debug.Log("Started dragging rice");
     }
     
     void OnMouseDrag()
@@ -33,32 +33,22 @@ public class Rice : MonoBehaviour
     void OnMouseUp()
     {
         isDragging = false;
-        CheckDropLocation();
+        Debug.Log($"Rice dropped at position {transform.position}");
     }
     
-    void CheckDropLocation()
+    // When rice enters the plate trigger
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Collider2D hit = Physics2D.OverlapPoint(transform.position);
-        if (hit != null)
+        Debug.Log($"Rice entered trigger: {other.gameObject.name} with tag: {other.tag}");
+        
+        if (other.CompareTag("Plate"))
         {
-            // Check if dropped on plate
-            if (hit.CompareTag("Plate"))
+            SushiPlate plate = other.GetComponent<SushiPlate>();
+            if (plate != null)
             {
-                transform.position = hit.transform.position;
-                transform.SetParent(hit.transform);
-                GetComponent<Rice>().enabled = false; // Lock in place
-                Debug.Log("Rice placed on plate");
-            }
-            // Check if dropped on rolling mat with seaweed
-            else if (hit.CompareTag("RollingMat"))
-            {
-                RollingMat mat = hit.GetComponent<RollingMat>();
-                if (mat.hasSeaweed)
-                {
-                    mat.AddRice();
-                    Destroy(gameObject);
-                    Debug.Log("Rice added to maki");
-                }
+                Debug.Log("Adding rice to plate and destroying prefab");
+                plate.AddRice();
+                Destroy(gameObject);
             }
         }
     }

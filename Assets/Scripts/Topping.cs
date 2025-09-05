@@ -1,111 +1,120 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class Topping : MonoBehaviour
 {
     [Header("Topping Settings")]
-    public ToppingType toppingType;
     public Sprite uncutSprite;
     public Sprite cutSprite;
-    public bool isCut = false;
-
+    
+    private ToppingType toppingType;
+    private bool isCut = false;
+    private bool canDrag = false;
     private SpriteRenderer spriteRenderer;
+    
+    // Dragging variables
     private bool isDragging = false;
     private Vector3 offset;
     private Camera mainCamera;
-
+    
     void Start()
     {
         mainCamera = Camera.main;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = uncutSprite;
+        
+        // Start with uncut sprite
+        if (uncutSprite) spriteRenderer.sprite = uncutSprite;
     }
-
+    
+    public void SetToppingType(ToppingType type)
+    {
+        toppingType = type;
+    }
+    
+    public void SetCuttable(bool cuttable)
+    {
+        canDrag = cuttable;
+    }
+    
+    public void CutTopping()
+    {
+        if (!isCut)
+        {
+            isCut = true;
+            if (cutSprite) spriteRenderer.sprite = cutSprite;
+            Debug.Log($"{toppingType} has been cut and sprite changed");
+        }
+    }
+    
     void OnMouseDown()
     {
-        if (isCut) // Only draggable when cut
+        // Only allow dragging if cut and can drag
+        if (isCut && canDrag)
         {
             isDragging = true;
             Vector3 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
             offset = transform.position - mousePos;
+            Debug.Log($"Started dragging cut {toppingType}");
+        }
+        else if (!isCut)
+        {
+            Debug.Log("Topping needs to be cut first!");
+        }
+        else if (!canDrag)
+        {
+            Debug.Log("Topping is not ready for dragging yet!");
         }
     }
-
+    
     void OnMouseDrag()
     {
-        if (isDragging && isCut)
+        if (isDragging && isCut && canDrag)
         {
             Vector3 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
             transform.position = mousePos + offset;
         }
     }
-
+    
     void OnMouseUp()
     {
-        if (isDragging)
+        isDragging = false;
+        if (isCut && canDrag)
         {
-            isDragging = false;
-            CheckDropLocation();
+            Debug.Log($"Topping dropped at position {transform.position}");
         }
     }
-
-    void CheckDropLocation()
+    
+    // When topping enters the plate trigger - FIXED: Removed !isDragging condition
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (!isCut) return;
-
-        Collider2D hit = Physics2D.OverlapPoint(transform.position);
-        if (hit != null)
+        // Only trigger when topping is cut and can be dragged
+        if (isCut && canDrag)
         {
-            // Check if dropped on rice (for nigiri)
-            if (hit.CompareTag("Rice"))
+            Debug.Log($"Topping entered trigger: {other.gameObject.name} with tag: {other.tag}");
+            
+            if (other.CompareTag("Plate"))
             {
-                CreateNigiri(hit.gameObject);
-            }
-            // Check if dropped on rolling mat for maki
-            else if (hit.CompareTag("RollingMat"))
-            {
-                RollingMat mat = hit.GetComponent<RollingMat>();
-                if (mat.hasSeaweed && mat.hasRice)
+                SushiPlate plate = other.GetComponent<SushiPlate>();
+                if (plate != null)
                 {
-                    mat.AddTopping(toppingType);
+                    Debug.Log($"Adding {toppingType} to plate and destroying prefab");
+                    plate.AddTopping(toppingType);
+                    
+                    // Find and reset the button that created this topping
+                    ToppingButton[] buttons = FindObjectsOfType<ToppingButton>();
+                    foreach(ToppingButton button in buttons)
+                    {
+                        if (button.toppingType == toppingType)
+                        {
+                            button.ResetButton();
+                            break;
+                        }
+                    }
+                    
                     Destroy(gameObject);
-                    Debug.Log($"{toppingType} added to maki");
                 }
             }
-        }
-    }
-
-    void CreateNigiri(GameObject riceObj)
-    {
-        // Create nigiri by adding topping sprite on top of rice
-        GameObject toppingOnRice = new GameObject($"Nigiri_{toppingType}");
-        toppingOnRice.transform.position = riceObj.transform.position + Vector3.up * 0.2f;
-        toppingOnRice.transform.SetParent(riceObj.transform);
-
-        SpriteRenderer toppingSR = toppingOnRice.AddComponent<SpriteRenderer>();
-        toppingSR.sprite = cutSprite;
-        toppingSR.sortingOrder = 1;
-
-        // Add completed sushi component to rice
-        CompletedSushi completedSushi = riceObj.AddComponent<CompletedSushi>();
-        completedSushi.sushiType = SushiType.Nigiri;
-        completedSushi.topping = toppingType;
-
-        Destroy(gameObject); // Remove the dragged topping
-        Debug.Log($"Nigiri with {toppingType} created!");
-    }
-
-    // Called by knife when cutting
-    public void CutTopping()
-    {
-        if (!isCut)
-        {
-            isCut = true;
-            spriteRenderer.sprite = cutSprite;
-            Debug.Log($"{toppingType} has been cut");
         }
     }
 }
