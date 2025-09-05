@@ -119,6 +119,11 @@ public class Pelanggan : MonoBehaviour
             }
             else if (isServed)
             {
+                if (!walkStart)
+                {
+                    walkStart = true;
+                    StartCoroutine(walkCoroutine());
+                }
                 charS.sprite = happyChar;
                 dialogS.enabled = false;
                 foodS.enabled = false;
@@ -151,7 +156,7 @@ public class Pelanggan : MonoBehaviour
 
     IEnumerator walkCoroutine()
     {
-        while (!isOnFinalPosition || isLeaving)
+        while (!isOnFinalPosition || isLeaving || isServed)
         {
             charTr.rotation = Quaternion.Euler(0f, 0f, degreeStep);
             yield return new WaitForSeconds(intervalStep);
@@ -176,8 +181,7 @@ public class Pelanggan : MonoBehaviour
     public void MenuServed()
     {
         isServed = true;
-        Debug.Log("Pesanan dibawa pelanggan secara benar!");
-        
+        Debug.Log("Pesanan dibawa pelanggan secara benar!"); 
     }
 
     public void MenuWrong()
