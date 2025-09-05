@@ -10,11 +10,10 @@ public class HealthBar : MonoBehaviour
 
     public void MinLife()
     {
-        life--;
-        heartImage[life].sprite = deathHeart;
-        if (life == 0)
+        if (life > 0)
         {
-            Time.timeScale = 0f;
+            life--;
+            heartImage[life].sprite = deathHeart;
         }
     }
 
