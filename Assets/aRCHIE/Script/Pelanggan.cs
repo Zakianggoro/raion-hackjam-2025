@@ -55,10 +55,12 @@ public class Pelanggan : MonoBehaviour
 
     Spawner spawner;
     Seat kursiPelanggan;
+    GameManager gManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         emoteS.enabled = false;
         int randFoD = Random.Range(0, 2);
         switch (randFoD)
@@ -110,6 +112,7 @@ public class Pelanggan : MonoBehaviour
 
                 if (!walkStart)
                 {
+                    gManager.ReduceLife();
                     walkStart = true;
                     StartCoroutine(walkCoroutine());
                 }
@@ -121,6 +124,7 @@ public class Pelanggan : MonoBehaviour
             {
                 if (!walkStart)
                 {
+                    gManager.AddPoint();
                     walkStart = true;
                     StartCoroutine(walkCoroutine());
                 }

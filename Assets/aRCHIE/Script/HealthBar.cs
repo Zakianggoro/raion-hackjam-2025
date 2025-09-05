@@ -12,5 +12,14 @@ public class HealthBar : MonoBehaviour
     {
         life--;
         heartImage[life].sprite = deathHeart;
+        if (life == 0)
+        {
+            Time.timeScale = 0f;
+        }
+    }
+
+    public int GetLife()
+    {
+        return life;
     }
 }

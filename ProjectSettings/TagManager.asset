@@ -12,6 +12,7 @@ TagManager:
   - Knife
   - Topping
   - Seaweed
+  - GameManager
   layers:
   - Default
   - TransparentFX
