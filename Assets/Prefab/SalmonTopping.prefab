@@ -79,15 +79,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 13
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -6967122372230043882, guid: 133ce1a188af31e468af74093b50e596, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.275, y: 1.045}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &4809217072614287633
@@ -127,10 +127,10 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.0005104882}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.275, y: 1.045}
+    newSize: {x: 2.275, y: 1.045}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uncutSprite: {fileID: -6967122372230043882, guid: 133ce1a188af31e468af74093b50e596, type: 3}
-  cutSprite: {fileID: 21300000, guid: 153cb1432807bfa4a98174063650a0b9, type: 3}
+  cutSprite: {fileID: -1811913676201272666, guid: d7a33311675a44d49b6637e5752c6b58, type: 3}
 --- !u!50 &6728457753029196129
 Rigidbody2D:
   serializedVersion: 5

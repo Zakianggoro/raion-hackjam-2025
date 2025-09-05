@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 833034680863413473}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.180062, y: -0.34372658, z: 0.072013855}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 5.11, y: -1.44, z: 0.072013855}
+  m_LocalScale: {x: 0.37388542, y: 0.37388542, z: 0.37388542}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -69,17 +69,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.046704292, y: 1.053241}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 9.23, y: 3.26}
+    newSize: {x: 9.23, y: 3.26}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.950348, y: 3.106482}
   m_EdgeRadius: 0
 --- !u!212 &3781152424696119196
 SpriteRenderer:
@@ -125,15 +125,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 13
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 4893248199025859358, guid: 29e4f167524b21e43bbadd76ea048baa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 9.23, y: 3.26}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &2961929689679806272
@@ -175,5 +175,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa0795e8d882ca46b96dd354991704c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uncutSprite: {fileID: -186506417676880816, guid: 0a34b9307763c78409e7617bd7012867, type: 3}
-  cutSprite: {fileID: -186506417676880816, guid: 0a34b9307763c78409e7617bd7012867, type: 3}
+  uncutSprite: {fileID: 4893248199025859358, guid: 29e4f167524b21e43bbadd76ea048baa, type: 3}
+  cutSprite: {fileID: 6552127003478283443, guid: 036492f4c6c03f848b89ac8bc9fcf6a8, type: 3}

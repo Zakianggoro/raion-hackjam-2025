@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2ade12d531721384aae212285fdca04d
+guid: bc32812b1553e1f429ae67ed9ce58079
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5100198299785367574
-    second: NEW HIGH SCORE TEXT_0
+      213: 7519420316263134096
+    second: CrabStick_Potong_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NEW HIGH SCORE TEXT_0
+      name: CrabStick_Potong_0
       rect:
         serializedVersion: 2
-        x: 69
-        y: 53
-        width: 300
-        height: 309
+        x: 363
+        y: 335
+        width: 284
+        height: 229
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 61012c6e45b87c640800000000000000
-      internalID: 5100198299785367574
+      spriteID: 09338b320f85a5860800000000000000
+      internalID: 7519420316263134096
       vertices: []
       indices: 
       edges: []
