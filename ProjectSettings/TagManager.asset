@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Sushi
   - FoodContainer
+  - Plate
+  - RollingMat
+  - Rice
+  - Knife
+  - Topping
+  - Seaweed
   layers:
   - Default
   - TransparentFX
