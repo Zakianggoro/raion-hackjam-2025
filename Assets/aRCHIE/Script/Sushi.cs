@@ -7,6 +7,7 @@ public class Sushi : MonoBehaviour
     [SerializeField] string sushiName;
     [SerializeField] SpriteRenderer spritePlatform;
     [SerializeField] float enlargeValue;
+    [SerializeField] string specialIngredient;
 
     bool isDrag = false;
     Vector2 startPos;
