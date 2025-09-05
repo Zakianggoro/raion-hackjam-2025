@@ -29,4 +29,13 @@ public class UnagiSauce : MonoBehaviour
         isDrag = false;
         transform.position = startPos;
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Sushi"))
+        {
+            Sushi sushiLocal = collision.GetComponent<Sushi>();
+            sushiLocal.ModifiedIngridient("Unasaus");
+        }
+    }
 }

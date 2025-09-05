@@ -222,7 +222,7 @@ MonoBehaviour:
   - {fileID: -5747913633912419129, guid: 3e0cdf5fef3195146a0f362ad8dc56eb, type: 3}
   - {fileID: -7180407130359012959, guid: 7e3253cfb0102e842a83a7c232fb965b, type: 3}
   foodsString: 
-  waitTime: 15
+  waitTime: 25
   startPos: {x: 0, y: 0}
   targetPos: {x: 0, y: 0}
   emotTr: {fileID: 8797890153165960948}

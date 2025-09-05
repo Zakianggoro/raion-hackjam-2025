@@ -44,26 +44,27 @@ public class GameManager : MonoBehaviour
             gameOverOverlay.SetActive(true);
             lastScore.text = "Your Score: \n" + currentScore.ToString();
             hiScore.text = "Highscore: \n" + highScore.ToString();
-            if (currentScore > highScore)
+            if (currentScore >= highScore)
             {
+                if (currentScore > highScore)
+                {
+                    highScore = currentScore;
+                    PlayerPrefs.SetInt("HighScore", highScore);
+                }
                 highScoreStick.SetActive(true);
             }
+            
         }
     }
 
-    public void AddPoint()
-    {
-        currentScore += addPoint;
-        if (currentScore > highScore)
-        {
-            highScore = currentScore;
-            PlayerPrefs.SetInt("HighScore", highScore);
-        }
-    }
+public void AddPoint()
+{
+    currentScore += addPoint;
+}
 
-    public void ReduceLife()
-    {
-        barHealth.MinLife();
-        Debug.Log("Nyawa sisa: " + barHealth.GetLife());
-    }
+public void ReduceLife()
+{
+    barHealth.MinLife();
+    Debug.Log("Nyawa sisa: " + barHealth.GetLife());
+}
 }

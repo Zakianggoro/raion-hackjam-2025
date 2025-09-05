@@ -16,10 +16,13 @@ public class Sushi : MonoBehaviour
     Vector2 startPos;
     Vector3 startSize;
 
+    SushiPlate piringSusi;
+
     void Start()
     {
         startPos = transform.position;
         startSize = transform.localScale;
+        piringSusi = GameObject.FindGameObjectWithTag("Plate").GetComponent<SushiPlate>();
     }
 
     void Update()
@@ -48,6 +51,7 @@ public class Sushi : MonoBehaviour
                 pelanggan.MenuServed();
             }
             else { pelanggan.MenuWrong(); }
+            piringSusi.ResetPlate();
             Destroy(gameObject); 
         }
         

@@ -216,10 +216,10 @@ public class Pelanggan : MonoBehaviour
         switch (random)
         {
             case 0:
-                foodsString = "Maki";
+                foodsString = "Nori";
                 break;
             case 1:
-                foodsString = "Nigiri";
+                foodsString = "Salmon";
                 break;
 
         }
