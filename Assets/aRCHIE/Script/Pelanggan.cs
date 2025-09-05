@@ -176,6 +176,14 @@ public class Pelanggan : MonoBehaviour
     public void MenuServed()
     {
         isServed = true;
+        Debug.Log("Pesanan dibawa pelanggan secara benar!");
+        
+    }
+
+    public void MenuWrong()
+    {
+        isLeaving = true;
+        Debug.Log("Salah Kasih Pesanan!");
     }
 
     public void init(Spawner s, Seat kursi)

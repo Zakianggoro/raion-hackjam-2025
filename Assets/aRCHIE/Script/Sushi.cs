@@ -40,6 +40,17 @@ public class Sushi : MonoBehaviour
     {
         Debug.Log("Mouse releasing");
         isDrag = false;
+
+        if (pelanggan != null)
+        {
+            if (specialIngredient == pelanggan.GetFoodString())
+            {
+                pelanggan.MenuServed();
+            }
+            else { pelanggan.MenuWrong(); }
+            Destroy(gameObject); 
+        }
+        
         transform.position = startPos;
     }
 
@@ -55,10 +66,7 @@ public class Sushi : MonoBehaviour
                 {
                     pelanggan.RightFood();
                 }
-                else if (specialIngredient != pelanggan.GetFoodString())
-                {
-                    pelanggan.WrongFood();
-                }
+                else { pelanggan.WrongFood(); }
             }
         }
     }
@@ -79,7 +87,7 @@ public class Sushi : MonoBehaviour
     public void ModifiedIngridient(String ingredient)
     {
         specialIngredient = ingredient;
-       // return specialIngredient;
+        // return specialIngredient;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Unagi_Sauce_0: 6021010020263421925
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
