@@ -32,7 +32,7 @@ public class UnagiSauce : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Sushi"))
+        if (collision.gameObject.CompareTag("Sushi") && isDrag)
         {
             Sushi sushiLocal = collision.GetComponent<Sushi>();
             sushiLocal.ModifiedIngridient("Unasaus");

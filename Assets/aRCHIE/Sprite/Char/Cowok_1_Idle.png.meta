@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cowok_1_Idle_0: 602708018428782107
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

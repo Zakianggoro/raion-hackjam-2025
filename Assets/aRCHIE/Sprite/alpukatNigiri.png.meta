@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      alpukatNigiri_0: -8036333754798904386
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

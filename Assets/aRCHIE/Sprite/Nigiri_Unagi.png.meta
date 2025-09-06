@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nigiri_Unagi_0: -7171893862060501450
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

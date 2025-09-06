@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sesame_0: 7207131602807823160
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
