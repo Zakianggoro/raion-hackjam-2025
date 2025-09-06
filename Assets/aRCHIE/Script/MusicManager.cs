@@ -23,6 +23,7 @@ public class MusicManager : MonoBehaviour
     [SerializeField] AudioClip yesHigh;
     [SerializeField] AudioClip notHigh;
     [SerializeField] AudioClip riceCooker;
+    [SerializeField] AudioClip cuttingFood;
 
 
     void Start()
@@ -58,32 +59,32 @@ public class MusicManager : MonoBehaviour
     // SFX
     public void PlayPelangganPesen()
     {
-        audio.PlayOneShot(pelangganPesen);
+        sfxAudio.PlayOneShot(pelangganPesen);
     }
 
     public void PlayPelangganMasuk()
     {
-        audio.PlayOneShot(pelangganMasuk);
+        sfxAudio.PlayOneShot(pelangganMasuk);
     }
 
     public void PlayPelangganHappy()
     {
-        audio.PlayOneShot(pelangganHappy);
+        sfxAudio.PlayOneShot(pelangganHappy);
     }
 
     public void PlayPelangganMarah()
     {
-        audio.PlayOneShot(pelangganMarah);
+        sfxAudio.PlayOneShot(pelangganMarah);
     }
 
     public void PlayYesHigh()
     {
-        audio.PlayOneShot(yesHigh);
+        sfxAudio.PlayOneShot(yesHigh);
     }
 
     public void PlayNotHigh()
     {
-        audio.PlayOneShot(notHigh);
+        sfxAudio.PlayOneShot(notHigh);
     }
 
     public void PlayRiceSound()
@@ -91,6 +92,11 @@ public class MusicManager : MonoBehaviour
         sfxAudio.clip = riceCooker;
         sfxAudio.Play();
         StartCoroutine(laguBerhenti(0.5f));
+    }
+
+    public void PlayCutSound()
+    {
+        sfxAudio.PlayOneShot(cuttingFood);
     }
 
     IEnumerator laguBerhenti(float detik)

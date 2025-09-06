@@ -13,6 +13,7 @@ TagManager:
   - Topping
   - Seaweed
   - GameManager
+  - MusicManager
   layers:
   - Default
   - TransparentFX

@@ -15,9 +15,11 @@ public class Topping : MonoBehaviour
     private bool isDragging = false;
     private Vector3 offset;
     private Camera mainCamera;
+    public MusicManager musicManager;
     
     void Start()
     {
+        musicManager = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicManager>();
         mainCamera = Camera.main;
         spriteRenderer = GetComponent<SpriteRenderer>();
         
@@ -43,6 +45,7 @@ public class Topping : MonoBehaviour
 
         if (cutSprite)
         {
+            musicManager.PlayCutSound();
             Vector3 oldSize = spriteRenderer.bounds.size;
             spriteRenderer.sprite = cutSprite;
             Vector3 newSize = spriteRenderer.bounds.size;

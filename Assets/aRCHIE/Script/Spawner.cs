@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour
 
     [Header("Capacity settings")]
     [SerializeField] Seat[] seats;
+    [SerializeField] MusicManager musicManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,6 +36,7 @@ public class Spawner : MonoBehaviour
                 GameObject newPelanggan = Instantiate(pelanggan[randomC], transform.position, quaternion.identity);
 
                 newPelanggan.GetComponent<Pelanggan>().init(this, kursi);
+                musicManager.PlayPelangganMasuk();
             }
             yield return new WaitForSeconds(interval);
         }

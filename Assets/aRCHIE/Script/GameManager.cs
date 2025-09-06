@@ -50,10 +50,15 @@ public class GameManager : MonoBehaviour
             {
                 if (currentScore > highScore)
                 {
+                    manager.PlayYesHigh();
                     highScore = currentScore;
                     PlayerPrefs.SetInt("HighScore", highScore);
                 }
                 highScoreStick.SetActive(true);
+            }
+            else
+            {
+                manager.PlayNotHigh();
             }
             
         }

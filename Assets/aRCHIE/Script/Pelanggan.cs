@@ -53,6 +53,9 @@ public class Pelanggan : MonoBehaviour
     bool isFoodDialog = false;
     bool isActivEmot = false;
 
+    [Space]
+    MusicManager mManager;
+
     Spawner spawner;
     Seat kursiPelanggan;
     GameManager gManager;
@@ -60,6 +63,7 @@ public class Pelanggan : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        mManager = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicManager>();
         gManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
         emoteS.enabled = false;
         int randFoD = Random.Range(0, 2);
@@ -91,6 +95,7 @@ public class Pelanggan : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
             if (Vector2.Distance(transform.position, targetPos) < 0.01f)
             {
+                mManager.PlayPelangganPesen();
                 walkStart = false;
                 charTr.rotation = Quaternion.Euler(0f, 0f, 0f);
                 charS.flipX = false;
@@ -112,6 +117,7 @@ public class Pelanggan : MonoBehaviour
 
                 if (!walkStart)
                 {
+                    mManager.PlayPelangganMarah();
                     gManager.ReduceLife();
                     walkStart = true;
                     StartCoroutine(walkCoroutine());
@@ -124,6 +130,7 @@ public class Pelanggan : MonoBehaviour
             {
                 if (!walkStart)
                 {
+                    mManager.PlayPelangganHappy();
                     gManager.AddPoint();
                     walkStart = true;
                     StartCoroutine(walkCoroutine());

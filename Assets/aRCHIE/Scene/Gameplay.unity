@@ -6798,7 +6798,7 @@ GameObject:
   - component: {fileID: 1609568071}
   m_Layer: 0
   m_Name: MusicManager
-  m_TagString: Untagged
+  m_TagString: MusicManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6827,6 +6827,7 @@ MonoBehaviour:
   yesHigh: {fileID: 8300000, guid: d15a050a257a5fe4b95d52f62ff1ac15, type: 3}
   notHigh: {fileID: 8300000, guid: 2e977c1337f229b478a10d3e441bfd20, type: 3}
   riceCooker: {fileID: 8300000, guid: c94400c63ed63b141ac3a8252dfddb03, type: 3}
+  cuttingFood: {fileID: 8300000, guid: 82c4ad315b100ac4da3b1f78eaab50b9, type: 3}
 --- !u!4 &1609568073
 Transform:
   m_ObjectHideFlags: 0
@@ -7335,6 +7336,7 @@ MonoBehaviour:
   - {fileID: 950897426}
   - {fileID: 1120953446}
   - {fileID: 1694384661}
+  musicManager: {fileID: 1609568071}
 --- !u!212 &1726550579
 SpriteRenderer:
   m_ObjectHideFlags: 0
