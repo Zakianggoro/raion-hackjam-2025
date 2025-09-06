@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -20,6 +21,10 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] string tutorScene;
     [SerializeField] string menuScene;
     [SerializeField] string settingScene;
+
+    [Space]
+
+    [SerializeField] MusicManager manager;
     public GameObject pauseOverlay;
     public Button pauseButton;
 
@@ -50,6 +55,7 @@ public class ButtonManager : MonoBehaviour
 
     public void Resume()
     {
+        manager.playMainBGM();
         Time.timeScale = 1f;
         pauseButton.enabled = true;
         pauseOverlay.SetActive(false);

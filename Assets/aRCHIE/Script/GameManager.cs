@@ -23,11 +23,13 @@ public class GameManager : MonoBehaviour
     [Header("Etc")]
     [SerializeField] int addPoint;
     [SerializeField] HealthBar barHealth;
+    [SerializeField] MusicManager manager;
 
     bool isOver = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        manager.playMainBGM();
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         Time.timeScale = 1f;
     }

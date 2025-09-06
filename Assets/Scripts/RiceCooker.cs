@@ -9,12 +9,20 @@ public class RiceCooker : MonoBehaviour
     
     private int tapCount = 0;
     private bool canUse = true;
+    bool isPlayingSound = false;
+    [SerializeField] MusicManager mManager;
     
     void OnMouseDown()
     {
         if (canUse)
         {
             tapCount++;
+            if (!isPlayingSound)
+            {
+                isPlayingSound = true;
+                mManager.PlayRiceSound();
+                isPlayingSound = false;
+            }
             Debug.Log($"Rice Cooker tapped: {tapCount}/5");
             
             if (tapCount >= 5)
